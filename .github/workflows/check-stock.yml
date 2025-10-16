@@ -26,15 +26,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build TypeScript
+        run: npm run build
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
-
-      - name: Create output directory
-        run: mkdir -p output
 
       - name: Run stock checker
         env:
           TARGET_URL: ${{ vars.TARGET_URL }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          OUTPUT_DIR: ./output
         run: npm start
