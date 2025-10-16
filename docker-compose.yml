@@ -1,0 +1,14 @@
+services:
+  restock-notifier:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: restock-notifier
+    environment:
+      - NODE_ENV=production
+      # ヘッドレスモードで実行
+      - HEADLESS=true
+    volumes:
+      # ログやスクリーンショットを保存するためのボリューム
+      - ./output:/app/output
+    # restart: unless-stopped  # 定期実行が必要な場合はコメントを外してください
