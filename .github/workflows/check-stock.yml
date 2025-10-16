@@ -2,8 +2,12 @@ name: Check Expo2025 Goods Stock
 
 on:
   schedule:
-    - cron: "*/30 * * * *" # 30分ごとに実行
-  workflow_dispatch:
+    - cron: "*/30 * * * *" # 30分ごとに実行（mainブランチのみ）
+  workflow_dispatch: # 手動実行も可能（すべてのブランチ）
+  push:
+    branches:
+      - main
+      - "**" # すべてのブランチでpush時に実行（テスト用）
 
 jobs:
   check-stock:
