@@ -38,11 +38,3 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           OUTPUT_DIR: ./output
         run: npm start
-
-      - name: Upload screenshot
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: screenshot-${{ github.run_number }}
-          path: output/*.png
-          retention-days: 7

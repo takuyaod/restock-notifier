@@ -26,11 +26,6 @@ export const fetchExpo2025GoodsStock = async (
 
     const isInStock = !isSoldOut;
 
-    await page.screenshot({
-      path: "./output/expo2025-goods-screenshot.png",
-      fullPage: true,
-    });
-
     return {
       url,
       title,
